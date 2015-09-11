@@ -1,0 +1,6 @@
+{% extends 'layouts/base.html' %}
+{% block title %}{{ restaurant.name }} - {{ block.super }}{% endblock %}
+{% block content %}
+<h1>{{ restaurant.name }}</h1>
+<p>{{ restaurant.description }}</p>
+{% endblock %}
