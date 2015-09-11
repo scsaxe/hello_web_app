@@ -1,7 +1,8 @@
 from django.shortcuts import render
+from collection import models
 
 def index(request):
-    number = 6
-    return render(request, 'index.html',{
-        'number': number,
+    restaurants = models.Restaurant.objects.all()
+    return render(request, 'index.html', {
+        'restaurants': restaurants,
     })
