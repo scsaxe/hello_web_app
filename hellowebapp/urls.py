@@ -10,5 +10,8 @@ urlpatterns = patterns('',
     url(r'^contact/$',
         TemplateView.as_view(template_name='contact.html'),
         name='contact'),
+    url(r'^restaurants/(?P<slug>[-\w]+)/$',
+        'collection.views.restaurant_detail',
+        name='restaurant_detail'),
     url(r'^admin/', include(admin.site.urls)),
 )

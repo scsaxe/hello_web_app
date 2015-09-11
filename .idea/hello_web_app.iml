@@ -10,6 +10,7 @@
       <list>
         <option value="$MODULE_DIR$/collection/templates" />
         <option value="$MODULE_DIR$/collection/templates/layouts" />
+        <option value="$MODULE_DIR$/collection/templates/restaurants" />
       </list>
     </option>
   </component>
