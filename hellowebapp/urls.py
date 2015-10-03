@@ -13,5 +13,7 @@ urlpatterns = patterns('',
     url(r'^restaurants/(?P<slug>[-\w]+)/$',
         'collection.views.restaurant_detail',
         name='restaurant_detail'),
+    url(r'^restaurants/(?P<slug>[-\w]+)/edit/$',
+        'collection.views.edit_restaurant', name='edit_restaurant'),
     url(r'^admin/', include(admin.site.urls)),
 )

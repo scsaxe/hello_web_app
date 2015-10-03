@@ -3,4 +3,5 @@
 {% block content %}
 <h1>{{ restaurant.name }}</h1>
 <p>{{ restaurant.description }}</p>
+<a href="{% url 'edit_restaurant' slug=restaurant.slug %}">Edit me!</a>
 {% endblock %}
