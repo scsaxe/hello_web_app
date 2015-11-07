@@ -15,5 +15,6 @@ urlpatterns = patterns('',
         name='restaurant_detail'),
     url(r'^restaurants/(?P<slug>[-\w]+)/edit/$',
         'collection.views.edit_restaurant', name='edit_restaurant'),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
