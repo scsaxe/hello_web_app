@@ -6,7 +6,7 @@ from django.contrib.auth.views import (
     password_reset_confirm,
     password_reset_complete,
 )
-from django.views.generic import TemplateView
+from django.views.generic import RedirectView, TemplateView
 
 from collection.backends import MyRegistrationView
 
@@ -18,11 +18,24 @@ urlpatterns = patterns('',
     url(r'^contact/$',
         TemplateView.as_view(template_name='contact.html'),
         name='contact'),
+    url(r'^restaurants/$', RedirectView.as_view(
+        pattern_name='browse')),
     url(r'^restaurants/(?P<slug>[-\w]+)/$',
         'collection.views.restaurant_detail',
         name='restaurant_detail'),
     url(r'^restaurants/(?P<slug>[-\w]+)/edit/$',
         'collection.views.edit_restaurant', name='edit_restaurant'),
+
+    # browsing
+    url(r'^browse/$', RedirectView.as_view(
+        pattern_name='browse')),
+    url(r'^browse/name/$',
+        'collection.views.browse_by_name',
+        name='browse'),
+    url(r'^browse/name/(?P<initial>[-\w]+)/$',
+        'collection.views.browse_by_name',
+        name='browse_by_name'),
+    # Account & Registration urls
     url(r'^accounts/password/reset/$', password_reset,
         {'template_name': 'registration/password_reset_form.html'},
         name="password_reset"),

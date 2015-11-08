@@ -58,3 +58,17 @@ def create_restaurant(request):
     return render(request, 'restaurants/create_restaurant.html', {
         'form': form,
     })
+
+
+def browse_by_name(request, initial=None):
+    if initial:
+        restaurants = models.Restaurant.objects.filter(
+            name__istartswith=initial).order_by('name')
+    else:
+        restaurants = models.Restaurant.objects.all()
+        restaurants = restaurants.order_by('name')
+
+    return render(request, 'search/search.html', {
+        'restaurants': restaurants,
+        'initial': initial,
+    })
